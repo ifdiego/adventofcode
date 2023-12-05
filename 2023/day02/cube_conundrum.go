@@ -75,7 +75,7 @@ func main() {
 	total := 0
 	power := 0
 
-	file, err := os.Open("input.txt")
+	file, err := os.Open("input")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
