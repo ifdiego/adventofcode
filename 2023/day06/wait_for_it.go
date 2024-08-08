@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"regexp"
@@ -15,7 +14,7 @@ func partOne() int {
 	numberOfWays := make([]int, 4)
 	result := 1
 
-	file, err := ioutil.ReadFile("input")
+	file, err := os.ReadFile("input")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -49,7 +48,7 @@ func partOne() int {
 func partTwo() int {
 	result := 0
 
-	file, err := ioutil.ReadFile("input")
+	file, err := os.ReadFile("input")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
