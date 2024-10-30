@@ -43,7 +43,7 @@ func main() {
 	total := 0
 	cards := 0
 
-	file, err := os.Open("input")
+	file, err := os.Open("day04/scratchcards.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)

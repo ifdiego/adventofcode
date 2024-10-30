@@ -13,7 +13,7 @@ import (
 func partOne() int {
 	total := 0
 
-	file, err := os.Open("input")
+	file, err := os.Open("day01/trebuchet.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -69,7 +69,7 @@ func formatLetters(s string) string {
 func partTwo() int {
 	total := 0
 
-	file, err := os.Open("input")
+	file, err := os.Open("day01/trebuchet.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)

@@ -75,7 +75,7 @@ func main() {
 	total := 0
 	power := 0
 
-	file, err := os.Open("input")
+	file, err := os.Open("day02/cube_conundrum.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)

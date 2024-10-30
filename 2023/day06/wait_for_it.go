@@ -14,7 +14,7 @@ func partOne() int {
 	numberOfWays := make([]int, 4)
 	result := 1
 
-	file, err := os.ReadFile("input")
+	file, err := os.ReadFile("day06/wait_for_it.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -48,7 +48,7 @@ func partOne() int {
 func partTwo() int {
 	result := 0
 
-	file, err := os.ReadFile("input")
+	file, err := os.ReadFile("day06/wait_for_it.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
