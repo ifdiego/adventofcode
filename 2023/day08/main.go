@@ -11,7 +11,7 @@ func main() {
 	var instructions string
 	nodes := make(map[string][2]string)
 
-	file, err := os.Open("day08/haunted_wasteland.txt")
+	file, err := os.Open("day08/input.txt")
 	if err != nil {
 		fmt.Println("ERROR:", err)
 		os.Exit(1)

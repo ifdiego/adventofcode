@@ -5,34 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"regexp"
 	"strconv"
 	"strings"
 )
-
-func partOne() int {
-	total := 0
-
-	file, err := os.Open("day01/trebuchet.txt")
-	if err != nil {
-		log.Println("ERROR:", err)
-		os.Exit(1)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		regex := regexp.MustCompile("[0-9]+")
-		elements := regex.FindAllString(scanner.Text(), -1)
-		lines := strings.Join(elements, "")
-		numbers := strings.Split(lines, "")
-
-		var last = len(numbers) - 1
-		calibrationValue, _ := strconv.Atoi(numbers[0] + numbers[last])
-		total = total + calibrationValue
-	}
-	return total
-}
 
 func formatLetters(s string) string {
 	newString := ""
@@ -66,10 +41,10 @@ func formatLetters(s string) string {
 	return newString
 }
 
-func partTwo() int {
+func main() {
 	total := 0
 
-	file, err := os.Open("day01/trebuchet.txt")
+	file, err := os.Open("day01/input.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -85,12 +60,6 @@ func partTwo() int {
 		calibrationValue, _ := strconv.Atoi(numbers[0] + numbers[last])
 		total = total + calibrationValue
 	}
-	return total
-}
 
-func main() {
-	totalPartOne := partOne()
-	fmt.Println("Part One:", totalPartOne)
-	totalPartTwo := partTwo()
-	fmt.Println("Part Two:", totalPartTwo)
+	fmt.Println(total)
 }

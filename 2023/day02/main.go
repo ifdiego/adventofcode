@@ -75,7 +75,7 @@ func main() {
 	total := 0
 	power := 0
 
-	file, err := os.Open("day02/cube_conundrum.txt")
+	file, err := os.Open("day02/input.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -91,6 +91,6 @@ func main() {
 		fewest["blue"] = 0
 	}
 
-	fmt.Println("Part One:", total)
-	fmt.Println("Part Two:", power)
+	fmt.Println(total)
+	fmt.Println(power)
 }
