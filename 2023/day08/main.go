@@ -61,5 +61,5 @@ func main() {
 		steps++
 	}
 
-	fmt.Println("Number of steps to reach ZZZ:", steps)
+	fmt.Println(steps)
 }
