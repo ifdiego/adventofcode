@@ -43,7 +43,7 @@ func main() {
 	total := 0
 	cards := 0
 
-	file, err := os.Open("day04/input.txt")
+	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -59,6 +59,6 @@ func main() {
 	for _, value := range copies {
 		cards = cards + (value + 1)
 	}
-	fmt.Println(total)
-	fmt.Println(cards)
+	fmt.Println("part one:", total)
+	fmt.Println("part two:", cards)
 }

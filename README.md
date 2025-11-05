@@ -1,4 +1,5 @@
 # adventofcode
 
-Solutions to the Advent of Code problems.
-Check out [https://adventofcode.com](https://adventofcode.com)
+Solutions to the [Advent of Code][adventofcode] problems.
+
+[adventofcode]: https://adventofcode.com

@@ -13,8 +13,9 @@ func main() {
 	canWin := 0
 	numberOfWays := make([]int, 4)
 	result := 1
+	result2 := 0
 
-	file, err := os.ReadFile("day06/input.txt")
+	file, err := os.ReadFile("input.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -43,5 +44,19 @@ func main() {
 		result = result * n
 	}
 
-	fmt.Println(result)
+	times2 := strings.Join(regex.FindAllString(t, -1), "")
+	distances2 := strings.Join(regex.FindAllString(d, -1), "")
+
+	length, _ := strconv.Atoi(times2)
+	distance, _ := strconv.Atoi(distances2)
+	for i := 1; i <= length; i++ {
+		milliseconds := length - i
+		millimeter := milliseconds * i
+		if millimeter > distance {
+			result2 += 1
+		}
+	}
+
+	fmt.Println("part one: ", result)
+	fmt.Println("part two: ", result2)
 }

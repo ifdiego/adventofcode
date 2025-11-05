@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -43,8 +44,9 @@ func formatLetters(s string) string {
 
 func main() {
 	total := 0
+	total2 := 0
 
-	file, err := os.Open("day01/input.txt")
+	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Println("ERROR:", err)
 		os.Exit(1)
@@ -53,13 +55,23 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		lines := formatLetters(scanner.Text())
+		regex := regexp.MustCompile("[0-9]+")
+		elements := regex.FindAllString(scanner.Text(), -1)
+		lines := strings.Join(elements, "")
 		numbers := strings.Split(lines, "")
 
 		var last = len(numbers) - 1
 		calibrationValue, _ := strconv.Atoi(numbers[0] + numbers[last])
 		total = total + calibrationValue
+
+		lines2 := formatLetters(scanner.Text())
+		numbers2 := strings.Split(lines2, "")
+
+		var last2 = len(numbers2) - 1
+		calibrationValue2, _ := strconv.Atoi(numbers2[0] + numbers2[last2])
+		total2 = total2 + calibrationValue2
 	}
 
-	fmt.Println(total)
+	fmt.Println("part one: ", total)
+	fmt.Println("part two: ", total2)
 }
