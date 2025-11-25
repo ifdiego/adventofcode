@@ -1,10 +1,6 @@
 use std::collections::HashMap;
-use std::fs;
 
-fn main() {
-    let path = format!("src/input.txt");
-    let input = fs::read_to_string(&path).unwrap_or_else(|_| panic!("failed to read input file"));
-
+pub fn run(input: &str) {
     let mut left = Vec::new();
     let mut right = Vec::new();
 
