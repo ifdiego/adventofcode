@@ -1,46 +1,30 @@
-package main
+package days
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strings"
 )
 
-func main() {
+func Day08(input string) {
 	var instructions string
 	nodes := make(map[string][2]string)
+	lines := strings.Split(strings.TrimSpace(input), "\n")
+	instructions = lines[0]
 
-	file, err := os.Open("input.txt")
-	if err != nil {
-		fmt.Println("ERROR:", err)
-		os.Exit(1)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	if scanner.Scan() {
-		instructions = scanner.Text()
-	}
-
-	for scanner.Scan() {
-		line := scanner.Text()
+	for _, line := range lines[1:] {
 		parts := strings.Split(line, " = ")
 		if len(parts) != 2 {
 			continue
 		}
+
 		node := parts[0]
 		edges := strings.Trim(parts[1], "()")
 		edgeParts := strings.Split(edges, ", ")
 		if len(edgeParts) != 2 {
 			continue
 		}
-		nodes[node] = [2]string{edgeParts[0], edgeParts[1]}
-	}
 
-	if err := scanner.Err(); err != nil {
-		fmt.Println("ERROR:", err)
-		os.Exit(1)
+		nodes[node] = [2]string{edgeParts[0], edgeParts[1]}
 	}
 
 	currentNode := "AAA"
@@ -50,7 +34,6 @@ func main() {
 
 	for currentNode != "ZZZ" {
 		currentInstruction := instructions[instructionIndex]
-
 		if currentInstruction == 'L' {
 			currentNode = nodes[currentNode][0]
 		} else if currentInstruction == 'R' {
@@ -61,5 +44,5 @@ func main() {
 		steps++
 	}
 
-	fmt.Println(steps)
+	fmt.Println("part one: ", steps)
 }

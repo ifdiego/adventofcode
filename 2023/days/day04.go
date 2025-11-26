@@ -1,10 +1,7 @@
-package main
+package days
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strings"
 )
 
@@ -39,26 +36,19 @@ func checkWinningGames(line string) int {
 	return points
 }
 
-func main() {
+func Day04(input string) {
 	total := 0
 	cards := 0
 
-	file, err := os.Open("input.txt")
-	if err != nil {
-		log.Println("ERROR:", err)
-		os.Exit(1)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		l := strings.Split(scanner.Text(), ":")[1]
-		total = total + checkWinningGames(l)
+	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
+		l := strings.Split(line, ":")[1]
+		total += checkWinningGames(l)
 	}
 
 	for _, value := range copies {
 		cards = cards + (value + 1)
 	}
-	fmt.Println("part one:", total)
-	fmt.Println("part two:", cards)
+
+	fmt.Println("part one: ", total)
+	fmt.Println("part two: ", cards)
 }

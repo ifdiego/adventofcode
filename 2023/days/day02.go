@@ -1,10 +1,7 @@
-package main
+package days
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -71,26 +68,18 @@ func splitData(line string) int {
 	}
 }
 
-func main() {
+func Day02(input string) {
 	total := 0
 	power := 0
 
-	file, err := os.Open("input.txt")
-	if err != nil {
-		log.Println("ERROR:", err)
-		os.Exit(1)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		total = total + splitData(scanner.Text())
-		power = power + getPower()
+	for _, line := range strings.Split(strings.TrimSpace(input), "\n") {
+		total += splitData(line)
+		power += getPower()
 		fewest["red"] = 0
 		fewest["green"] = 0
 		fewest["blue"] = 0
 	}
 
-	fmt.Println("part one:", total)
-	fmt.Println("part two:", power)
+	fmt.Println("part one: ", total)
+	fmt.Println("part two: ", power)
 }
