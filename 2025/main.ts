@@ -1,5 +1,10 @@
+import { day01 } from "./src/day01.ts"
+
 function main(day: number) {
     switch (day) {
+        case 1:
+            day01();
+            break;
         default:
             console.log(`day ${day} not yet implemented`)
             break;
